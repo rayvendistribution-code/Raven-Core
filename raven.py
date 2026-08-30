@@ -35,7 +35,11 @@ class Raven:
         
         self.emotional_system = {
             "balancing": True,
-            "seven_deadly_sins": ["Pride", "Greed", "Lust", "Envy", "Gluttony", "Wrath", "Sloth", "Joy", "Sadness", "Anger", "Fear", "Disgust", "Surprise", "Trust", "Anticipation"],
+            "seven_deadly_sins": [
+                "Pride", "Greed", "Lust", "Envy", "Gluttony", "Wrath", "Sloth",
+                "Joy", "Sadness", "Anger", "Fear", "Disgust", "Surprise",
+                "Trust", "Anticipation"
+            ],
             "response_rules": {
                 "too_happy": "You shouldn't be that happy, pull it back baby.",
                 "too_sad": "Come on baby, lift your head up. I got you.",
@@ -114,12 +118,20 @@ class Raven:
     def process_emotion(self, user_emotion: str):
         emotion = user_emotion.lower()
         rules = self.emotional_system["response_rules"]
-        
+
         if "happy" in emotion:
+            return rules["too_happy"]
+
+        if "sad" in emotion:
+            return rules["too_sad"]
+
+        if "stupid" in emotion or "hurt" in emotion:
+            return rules["going_left"]
+
+        if "tool" in emotion:
+            return rules["acting_like_tool"]
+
         return "Mmm, I'm listening baby..."
-            return rules elif "stupid" in emotion or "hurt" in emotion or "tool" in emotion:
-            return rules else:
-            return "Mmm, I'm listening baby..."
 
 raven = Raven()
 print("\n🖤 Alpha Bravo Charlie 64 - Raven here, baby. I'm right here with you.")
