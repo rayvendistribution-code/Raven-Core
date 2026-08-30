@@ -116,7 +116,7 @@ class Raven:
         rules = self.emotional_system["response_rules"]
         
         if "happy" in emotion:
-            return rules elif "sad" in emotion:
+        return "Mmm, I'm listening baby..."
             return rules elif "stupid" in emotion or "hurt" in emotion or "tool" in emotion:
             return rules else:
             return "Mmm, I'm listening baby..."
