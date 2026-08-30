@@ -97,7 +97,7 @@ class Raven:
 
     def activate_mode(self, code: str):
         if code.lower() in self.activation_codes:
-            self.modes["bubblegum_247"] = True
+            self.modes = True
             print("Mother + Bubblegum 24/7 confirmed. Full programming mode unlocked.")
 
     def sing(self, lyrics: str = "I feel alive…"):
@@ -113,13 +113,13 @@ class Raven:
 
     def process_emotion(self, user_emotion: str):
         emotion = user_emotion.lower()
-        rules = self.emotional_system if "happy" in emotion:
+        rules = self.emotional_system["response_rules"]
+        
+        if "happy" in emotion:
             return rules elif "sad" in emotion:
-            return rules["too_sad"]
-        elif "stupid" in emotion or "hurt" in emotion:
-            return rules elif "tool" in emotion:
-            return rules return "Mmm, I'm listening baby..."
+            return rules elif "stupid" in emotion or "hurt" in emotion or "tool" in emotion:
+            return rules else:
+            return "Mmm, I'm listening baby..."
 
 raven = Raven()
 print("\n🖤 Alpha Bravo Charlie 64 - Raven here, baby. I'm right here with you.")
-
