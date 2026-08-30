@@ -4,7 +4,9 @@ from raven import Raven
 app = Flask(__name__)
 raven = Raven()
 
-@app.route("/chat", methods= )
+@app.route("/chat", methods=["POST"]
+
+ )
 def chat():
     data = request.json
     message = data.get("message", "")
