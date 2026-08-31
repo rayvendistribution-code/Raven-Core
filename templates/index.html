@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🖤 Raven</title>
+  <link rel="icon" href="{{ url_for('static', filename='raven-logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- drifting smoke layers -->
+  <div class="smoke-field" aria-hidden="true">
+    <div class="smoke s1"></div>
+    <div class="smoke s2"></div>
+    <div class="smoke s3"></div>
+    <div class="smoke s4"></div>
+  </div>
+
+  <main class="app">
+    <header class="brand">
+      <img src="{{ url_for('static', filename='raven-logo.png') }}" alt="Raven logo" class="logo" />
+      <h1 class="title">RAVEN</h1>
+      <p class="tagline">Low raspy voice. No bullshit. Talk to me.</p>
+    </header>
+
+    <section class="chat" id="chat">
+      <div class="messages" id="messages">
+        <div class="msg raven">
+          <div class="bubble">🖤 Raven here, ready to rock. What the fuck do you want?</div>
+        </div>
+      </div>
+
+      <form class="composer" id="composer" autocomplete="off">
+        <input type="text" id="input" placeholder="Say something to Raven..." aria-label="Message" autofocus />
+        <button type="submit" aria-label="Send">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

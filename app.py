@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from raven import Raven
 
 app = Flask(__name__)
@@ -6,7 +6,7 @@ raven = Raven()
 
 @app.route("/")
 def home():
-    return jsonify({"message": "🖤 Raven is online.", "status": raven.status, "name": raven.name})
+    return render_template("index.html")
 
 @app.route("/chat", methods=["POST"])
 def chat():
