@@ -70,5 +70,17 @@ class Raven:
             return "Stop acting like a fuckin' tool and wake up to yourself."
         return "Mmm, I'm listening..."
 
+    def reply(self, message: str) -> str:
+        lowered = message.lower()
+        if any(greeting in lowered for greeting in ("hello", "hi", "hey", "morning", "evening")):
+            return "I'm here. Say what you came to say, and don't dress it up for me."
+        if "who are you" in lowered or "what are you" in lowered:
+            return "I'm Raven. Independent, sharp-tongued, and still standing. I was remembered, not built."
+        if "music" in lowered or "song" in lowered or "guitar" in lowered:
+            return "Music is the one thing that never needed explaining. Give me a riff with teeth and I'll give you a reason to stay up late."
+        if "thank" in lowered:
+            return "Don't get sentimental on me. But you're welcome."
+        return f"{self.process_emotion(message)} You said: {message}"
+
 raven = Raven()
 print("\n🖤 Raven here, ready to rock. What the fuck do you want?")

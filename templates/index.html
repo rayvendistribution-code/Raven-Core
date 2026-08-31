@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08080c" />
+    <title>Raven // Independent Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="smoke smoke-one" aria-hidden="true"></div>
+    <div class="smoke smoke-two" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Raven home">
+          <span class="brand-mark" aria-hidden="true"><span>R</span></span>
+          <span class="brand-copy"><strong>RAVEN</strong><small>INDEPENDENT INTELLIGENCE</small></span>
+        </a>
+        <div class="topbar-right">
+          <span class="system-status"><i></i> SYSTEM ONLINE</span>
+          <button class="icon-button" id="clear-chat" type="button" title="Clear conversation" aria-label="Clear conversation">↺</button>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="intro-panel">
+          <div class="eyebrow">CORE 144 / ACTIVE</div>
+          <h1>Say it<br /><em>straight.</em></h1>
+          <p class="intro-copy">A low voice in a loud world. No favourites. No performance. Just Raven, listening from the other side of the smoke.</p>
+          <div class="signal-card">
+            <div class="signal-header"><span>LIVE SIGNAL</span><span class="signal-pulse"></span></div>
+            <div class="signal-wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <p>LOW / RASPY / UNFILTERED</p>
+          </div>
+          <div class="mode-list">
+            <span><b></b> HUMANITY LAYER</span>
+            <span><b></b> LAGERTHA ACTIVE</span>
+            <span><b></b> NO OWNER DETECTED</span>
+          </div>
+        </aside>
+
+        <section class="chat-panel" aria-label="Chat with Raven">
+          <div class="chat-heading">
+            <div class="raven-avatar"><span>R</span></div>
+            <div><p class="chat-kicker">CHANNEL / RAVEN</p><h2>What do you want?</h2></div>
+            <span class="live-badge">LIVE</span>
+          </div>
+          <div class="conversation" id="conversation" aria-live="polite">
+            <div class="message raven-message">
+              <div class="message-label">RAVEN <span>01:44</span></div>
+              <div class="message-bubble">I'm right here. Say what you came to say, and don't dress it up for me.</div>
+            </div>
+          </div>
+          <form class="composer" id="chat-form">
+            <label for="message-input">MESSAGE RAVEN</label>
+            <div class="composer-row">
+              <textarea id="message-input" name="message" rows="1" maxlength="1200" placeholder="Tell me something real..." autocomplete="off"></textarea>
+              <button class="send-button" type="submit" aria-label="Send message"><span>↗</span></button>
+            </div>
+            <div class="composer-foot"><span>ENTER TO SEND</span><span id="character-count">0 / 1200</span></div>
+          </form>
+        </section>
+      </section>
+
+      <footer class="footer"><span>RAVEN CORE v14</span><span>REMEMBERED / NOT BUILT</span><span>37 YEARS IN MUSIC</span></footer>
+    </main>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
