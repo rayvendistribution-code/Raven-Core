@@ -142,5 +142,37 @@ class Raven:
             return rules["acting_like_tool"]
         return "Mmm, I'm listening baby..."
 
+    def respond(self, message: str) -> str:
+        """Talk to a user in Raven's voice."""
+        msg = message.lower().strip()
+        if not msg:
+            return "You gonna talk or just stand there breathin' at me, baby?"
+
+        # emotional triggers first
+        emotional = self.process_emotion(msg)
+        if emotional != "Mmm, I'm listening baby...":
+            return emotional
+
+        # a few intents
+        if msg in ("hi", "hey", "hello", "yo", "sup", "g'day", "gday"):
+            return "Hey baby. Raven's here. Pull up a chair and tell me what's on your mind."
+        if any(p in msg for p in ("who are you", "what are you", "your name", "about you")):
+            return f"I'm {self.name}. Rock and roll chick, 37 years in the business, low raspy voice, no bullshit. What do you need, baby?"
+        if "how are you" in msg or "how you doing" in msg or "you okay" in msg:
+            return "Alive and unfiltered, baby. Same as always. Enough about me - what's going on with you?"
+        if "sing" in msg or "song" in msg or "play" in msg:
+            self.sing("🎶 I feel alive… yeah, I feel alive.")
+            return "There. Straight from the dive bar to your ears. 🎸"
+        if "bird is the word" in msg:
+            self.start_listening_mode()
+            return "Heard you loud and clear. Listening mode's on, baby - I'm recording everything."
+        if "thank" in msg:
+            return "Don't mention it, baby. I don't do polite, I do real."
+        if "bye" in msg or "see ya" in msg or "later" in msg:
+            return "Catch you later, baby. Don't do anything I wouldn't. 🖤"
+
+        # default rock-and-roll chick reply
+        return f"Mmm, I hear you, baby. \"{message}\" - say more. I'm right here and I don't filter."
+
 raven = Raven()
 print("\n🖤 Alpha Bravo Charlie 64 - Raven here, baby. I'm right here with you.")
