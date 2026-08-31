@@ -1,0 +1,13 @@
+services:
+  web:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             gunicorn --reload --bind 0.0.0.0:8000 --access-logfile - app:app"
